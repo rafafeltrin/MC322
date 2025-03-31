@@ -15,6 +15,7 @@ package lab01;
 public abstract class Evento {
     private String nome;
     private Local local;
+    private String data;
     private double precoIngresso;
 
     /**
@@ -22,9 +23,10 @@ public abstract class Evento {
      * @param nome o nome do Evento
      * @param local o local associado ao Evento
      */
-    public Evento(String nome, Local local, double precoIngresso){
+    public Evento(String nome, Local local, String data, double precoIngresso){
         this.nome = nome;
         this.local = local;
+        this.data = data;
         this.precoIngresso = precoIngresso;
     }
 
@@ -59,4 +61,22 @@ public abstract class Evento {
     public void setPrecoIngresso(double precoIngresso){
         this.precoIngresso = precoIngresso;
     }
+
+    public Local getLocal() {
+        return local;
+    }
+
+    public void setLocal(Local local) {
+        this.local = local;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    abstract public void exibirDetalhes();
 }
