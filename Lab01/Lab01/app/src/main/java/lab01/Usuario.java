@@ -47,6 +47,14 @@ public class Usuario {
         this.nome = nome;
     }
 
+    public String getEmail(){
+        return email;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+
     public void adicionarIngresso(Ingresso ingresso) {
         this.ingressosComprados.add(ingresso);
     }

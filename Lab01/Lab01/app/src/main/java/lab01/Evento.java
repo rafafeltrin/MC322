@@ -7,11 +7,9 @@
 package lab01;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Contém a estrutura de implementação de um Evento.
@@ -19,7 +17,7 @@ import java.util.Locale;
  * @author Gabriel Leite - 216180
  * @author Caio Rhoden - 214129
  */
-public abstract class Evento {
+public abstract class Evento implements FiltroEventos{
     private String nome;
     private Local local;
     private LocalDate data;
@@ -107,6 +105,5 @@ public abstract class Evento {
 
         return faturamentoTotal;
     }
-
     abstract public void exibirDetalhes();
 }
