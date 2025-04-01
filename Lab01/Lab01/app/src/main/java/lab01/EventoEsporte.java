@@ -6,7 +6,15 @@ public class EventoEsporte extends Evento {
     private String time1;
     private String time2;
 
-    public EventoEsporte(String nome, Local local, String data, double precoIngresso, String tipoEsporte, String categoria, String time1, String time2){
+    public EventoEsporte(String nome, Local local, String data, double precoIngresso, String tipoEsporte, String categoria, String time1, String time2) {
+        super(nome, local, data, precoIngresso);
+        this.tipoEsporte = tipoEsporte;
+        this.categoria = categoria;
+        this.time1 = time1;
+        this.time2 = time2;
+    }
+
+    public EventoEsporte(String nome, Local local, String data, double precoIngresso, String tipoEsporte, String categoria) {
         super(nome, local, data, precoIngresso);
         this.tipoEsporte = tipoEsporte;
         this.categoria = categoria;
@@ -38,13 +46,16 @@ public class EventoEsporte extends Evento {
 
     public void exibirDetalhes(){
         System.out.println("Nome: " + getNome());
-        System.out.println("Local: " + getLocal());
+        System.out.println("Local: " + getLocal().getNome());
+        System.out.println("Capaciadade: " + getLocal().getCapacidade());
         System.out.println("Data: " + getData());
         System.out.println("Tipo de esporte: " + tipoEsporte);
         System.out.println("Categoria: " + categoria);
 
         if (time1 != null && time2 != null){
-            System.out.println("Times"+ time1 + " x " + time2);
+            System.out.println("Times: "+ time1 + " x " + time2);
         }
+
+        System.out.println("Faturamento total: R$" + calcularFaturamento());
     }
 }

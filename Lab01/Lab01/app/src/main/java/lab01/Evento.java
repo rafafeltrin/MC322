@@ -6,6 +6,13 @@
 
 package lab01;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 /**
  * Contém a estrutura de implementação de um Evento.
  * 
@@ -15,8 +22,9 @@ package lab01;
 public abstract class Evento {
     private String nome;
     private Local local;
-    private String data;
+    private LocalDate data;
     private double precoIngresso;
+    private List<Ingresso> ingressosVendidos;
 
     /**
      * Construtor da classe Evento
@@ -26,8 +34,15 @@ public abstract class Evento {
     public Evento(String nome, Local local, String data, double precoIngresso){
         this.nome = nome;
         this.local = local;
-        this.data = data;
+        this.data = converteStringParaData(data);
         this.precoIngresso = precoIngresso;
+        this.ingressosVendidos = new ArrayList<>();
+    }
+
+    private LocalDate converteStringParaData(String data) {
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+       
+        return LocalDate.parse(data, formatador);
     }
 
     /**
@@ -71,11 +86,26 @@ public abstract class Evento {
     }
 
     public String getData() {
-        return data;
+        return data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
     public void setData(String data) {
-        this.data = data;
+        this.data = converteStringParaData(data);
+    }
+
+    public void adicionarIngresso(Ingresso ingresso, Usuario usuario) {
+        this.ingressosVendidos.add(ingresso);
+        usuario.adicionarIngresso(ingresso);
+    }
+
+    public double calcularFaturamento(){
+        double faturamentoTotal = 0.0;
+
+        for(Ingresso ingresso : ingressosVendidos){
+            faturamentoTotal += ingresso.getPreco();
+        }
+
+        return faturamentoTotal;
     }
 
     abstract public void exibirDetalhes();

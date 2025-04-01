@@ -38,8 +38,20 @@ public abstract class Ingresso {
         return String.valueOf(n);
     }
 
+    /**
+     * Retorna o evento associado ao Ingresso
+     * @return o evento associado ao Ingresso
+     */
     protected Evento getEvento(){
         return evento;
+    }
+
+    /**
+     * Retorna o código do Ingresso
+     * @return o código do Ingresso
+     */
+    public String getCodigo(){
+        return codigo;
     }
     
     /**

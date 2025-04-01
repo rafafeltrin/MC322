@@ -5,6 +5,9 @@
  */
 package lab01;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Contém a estrutura de implementação de um Usuario.
  * 
@@ -15,6 +18,7 @@ public class Usuario {
 
     private String nome;
     private String email;
+    private List<Ingresso> ingressosComprados;
 
     /**
      * Construtor da classe Usuario
@@ -24,6 +28,7 @@ public class Usuario {
     public Usuario(String nome, String email){
         this.nome = nome;
         this.email = email;
+        ingressosComprados = new ArrayList<>();
     }
 
     /**
@@ -40,5 +45,17 @@ public class Usuario {
      */
     public void setNome(String nome){
         this.nome = nome;
+    }
+
+    public void adicionarIngresso(Ingresso ingresso) {
+        this.ingressosComprados.add(ingresso);
+    }
+
+    public void removerIngresso(Ingresso ingresso) {
+        this.ingressosComprados.remove(ingresso);
+    }
+
+    public List<Ingresso> getIngressosComprados() {
+        return ingressosComprados;
     }
 }

@@ -38,7 +38,8 @@ public class EventoTeatro extends Evento {
 
     public void exibirDetalhes(){
         System.out.println("Nome: " + getNome());
-        System.out.println("Local: " + getLocal());
+        System.out.println("Local: " + getLocal().getNome());
+        System.out.println("Capacidade: " + getLocal().getCapacidade());
         System.out.println("Data: " + getData());
         System.out.println("Duração: " + duracao + " minutos");
         System.out.println("Gênero: " + generoTeatro);
