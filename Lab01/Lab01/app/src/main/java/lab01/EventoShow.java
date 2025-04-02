@@ -1,8 +1,9 @@
+//O JavaDoc dessa classe foi gerado com auxílio de uma IA generativa (GPT-4o)
+
 package lab01;
 
 /**
  * Representa um evento do tipo show, com informações adicionais como artista, gênero e duração.
- * Extende a classe Evento.
  * 
  * @author Rafael Feltrin - 276246
  */

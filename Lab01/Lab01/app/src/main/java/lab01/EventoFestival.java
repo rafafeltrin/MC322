@@ -1,9 +1,8 @@
+//O JavaDoc dessa classe foi gerado com auxílio de uma IA generativa (GPT-4o)
 package lab01;
 
 import java.util.ArrayList;
 import java.util.List;
-
-//O JavaDoc dessa classe foram gerados com auxílio de uma IA generativa (GPT-4o) 
 
 /**
  * 
@@ -54,8 +53,13 @@ public class EventoFestival extends Evento {
      */
     public void exibirPatrocinadores() {
         System.out.println("Patrocinadores do festival " + getNome() + ":");
-        for (String patrocinador : patrocinadores) {
-            System.out.println("- " + patrocinador);
+        if (patrocinadores.isEmpty()) {
+            System.out.println("Nenhum patrocinador cadastrado.");
+            return;
+        } else {
+            for (String patrocinador : patrocinadores) {
+                System.out.println("- " + patrocinador);
+            }
         }
     }
 
@@ -65,11 +69,8 @@ public class EventoFestival extends Evento {
      * @param patrocinador Nome do patrocinador a ser adicionado.
      */
     public void adicionarPatrocinador(String patrocinador) {
-        if (!patrocinador.isEmpty()) {
-            patrocinadores.add(patrocinador);
-        } else {
-            System.out.println("Patrocinador inválido.");
-        }
+        patrocinadores.add(patrocinador);
+
         System.out.println("Patrocinador " + patrocinador + " adicionado ao festival " + getNome() + ".");
     }
 

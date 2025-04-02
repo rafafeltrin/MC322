@@ -1,3 +1,6 @@
+//O JavaDoc dessa classe foi gerado com auxílio de uma IA generativa (GPT-4o)
+
+
 package lab01;
 
 /**
@@ -8,7 +11,6 @@ package lab01;
  * @author Rafael Feltrin - 276246
  */
 public class IngressoBancoDoBrasil extends Ingresso {
-
     /**
      * Construtor da classe IngressoBancoDoBrasil.
      * 

@@ -1,3 +1,5 @@
+//O JavaDoc dessa classe foi gerado com auxílio de uma IA generativa (GPT-4o)
+
 /*
  * Ingresso.java
  * 
@@ -13,6 +15,7 @@ import java.util.Random;
  * 
  * @author Gabriel Leite - 216180
  * @author Caio Rhoden - 214129
+ * @author Rafael Feltrin - 276246
  */
 public abstract class Ingresso {
     private Evento evento;
@@ -33,7 +36,6 @@ public abstract class Ingresso {
      */
     private String gerarCodigo(){
         Random random = new Random();
-        // gerar um número aleatório de 0 a 3
         int n = random.nextInt(1000, 9999);
         return String.valueOf(n);
     }

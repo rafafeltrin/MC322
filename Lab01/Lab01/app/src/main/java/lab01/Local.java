@@ -1,3 +1,5 @@
+//O JavaDoc dessa classe foi gerado com auxílio de uma IA generativa (GPT-4o)
+
 /*
  * Local.java
  * 
@@ -10,16 +12,17 @@ package lab01;
  * 
  * @author Gabriel Leite - 216180
  * @author Caio Rhoden - 214129
+ * @author Rafael Feltrin - 276246
  */
 public class Local {
     private String nome;
-    private double capacidade;
+    private int capacidade;
 
     /**
      * Construtor da classe Local
      * @param nome o nome do local
      */
-    public Local(String nome, double capacidade){
+    public Local(String nome, int capacidade){
         this.nome = nome;
         this.capacidade = capacidade;
     }
@@ -44,15 +47,15 @@ public class Local {
      * Retorna a capacidade do local
      * @return a capacidade do local
      */
-    public double getCapacidade(){
+    public int getCapacidade(){
         return capacidade;
     }
     
     /**
-     * Altera a capacidade do local para `capacidade` 
+     * Altera a capacidade do local
      * @param capacidade a nova capacidade do local
      */
-    public void setCapacidade(double capacidade){
+    public void setCapacidade(int capacidade){
         this.capacidade = capacidade;
     }
 }

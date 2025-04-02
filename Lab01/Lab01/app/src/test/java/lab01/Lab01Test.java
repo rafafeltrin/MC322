@@ -2,7 +2,14 @@ package lab01;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-
+/**
+ * Alterações realizadas no arquivo
+ * 
+ * 1) Modifiquei a instanciação do EventoShow para que contenha os parametros corretos do construtor que implementei
+ * 
+ * 2) Alterei o assertEquals que testa o ingresso de um usuário, pois na minha implementação o 
+ *    ingresso é adicionado a uma lista de ingressos comprados do usuário, assim cada usuário pode ter mais de um ingresso
+ */
 
 public class Lab01Test {
 
@@ -13,7 +20,7 @@ public class Lab01Test {
     public void getCapacidadeEventoShow() {
 
         Local testLocal = new Local("Teatro Castro Mendes", 2000);
-        EventoShow testEvento = new EventoShow("MPB em Campinas", testLocal, 150, "Djavan", "01/05/2025");
+        EventoShow testEvento = new EventoShow("MPB em Campinas",testLocal, "01/05/2025", 200, "Djavan", "MPB", 180);
         assertEquals(2000, testEvento.getCapacidade());
     }
 
@@ -27,7 +34,7 @@ public class Lab01Test {
     public void setAndGetArtistaEventoShow() {
 
         Local testLocal = new Local("Teatro Castro Mendes", 2000);
-        EventoShow testEvento = new EventoShow("MPB em Campinas", testLocal, 150, "Djavan", "01/05/2025");
+        EventoShow testEvento = new EventoShow("MPB em Campinas",testLocal, "01/05/2025", 200, "Djavan", "MPB", 180);
         testEvento.setArtista("Anavitória");
         assertEquals("Anavitória", testEvento.getArtista());
     }
@@ -41,7 +48,7 @@ public class Lab01Test {
     public void getPrecoIngressoMeia() {
 
         Local testLocal = new Local("Teatro Castro Mendes", 2000);
-        EventoShow testEvento = new EventoShow("MPB em Campinas", testLocal, 200, "Djavan", "01/05/2025");
+        EventoShow testEvento = new EventoShow("MPB em Campinas",testLocal, "01/05/2025", 200, "Djavan", "MPB", 180);
         IngressoMeia ingressoMeia = new IngressoMeia(testEvento);
         assertEquals(100, ingressoMeia.getPreco());
     }
@@ -55,7 +62,7 @@ public class Lab01Test {
     public void getPrecoIngressoInteira() {
 
         Local testLocal = new Local("Teatro Castro Mendes", 2000);
-        EventoShow testEvento = new EventoShow("MPB em Campinas", testLocal, 250, "Djavan", "01/05/2025");
+        EventoShow testEvento = new EventoShow("MPB em Campinas",testLocal, "01/05/2025", 250, "Djavan", "MPB", 180);
         IngressoInteira ingressoInteira = new IngressoInteira(testEvento);
         assertEquals(250, ingressoInteira.getPreco());
     }
@@ -67,20 +74,12 @@ public class Lab01Test {
      */
     @Test
     public void adicionarIngressoMeia() {
-
         Local testLocal = new Local("Teatro Castro Mendes", 2000);
-        EventoShow testEvento = new EventoShow("MPB em Campinas", testLocal, 200, "Djavan", "01/05/2025");
+        EventoShow testEvento = new EventoShow("MPB em Campinas",testLocal, "01/05/2025", 200, "Djavan", "MPB", 180);
         IngressoMeia ingressoMeia = new IngressoMeia(testEvento);
         Usuario usuarioTest = new Usuario("Gabriel", "gabriel@me.com");
         testEvento.adicionarIngresso(ingressoMeia, usuarioTest);
         assertEquals(1, testEvento.getIngressosVendidos().size());
-        assertEquals(ingressoMeia, usuarioTest.getIngresso());
-
+        assertEquals(ingressoMeia, usuarioTest.getIngresso().get(0));
     }
-    
-    /**
-     * Testa o método adicionarEvento do HistoricoEventos
-     * Verifica se os dois eventos foram adicionados à lista de eventos
-     * do HistoricoEventos
-
 }

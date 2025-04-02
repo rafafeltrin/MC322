@@ -12,6 +12,7 @@ package lab01;
  * 
  * @author Rafael Feltrin - 276246
  */
+
 public class App {
 
     /**
@@ -20,7 +21,7 @@ public class App {
      * @param args Argumentos da linha de comando.
      */
     public static void main(String[] args) {
-        //Criacao de um usuários
+        //Criacao de usuários
         Usuario usuario0 = new Usuario("Rafael", "rafafeltirn@gmail.com");
         Usuario usuario1 = new Usuario("João", "joao@example.com");
         Usuario usuario2 = new Usuario("Cassia", "cassia@example.com");
@@ -184,7 +185,7 @@ public class App {
         System.out.println("Demonstração que um usuário pode ter mais de um ingresso:");
         System.out.println("Usuário: " + usuario.getNome() + " - Email: " + usuario.getEmail());
         System.out.println("Ingressos do usuário: ");
-        for (Ingresso ingresso : usuario.getIngressosComprados()) {
+        for (Ingresso ingresso : usuario.getIngresso()) {
             System.out.println("- Código: " + ingresso.getCodigo() + ", Preço: " + ingresso.getPreco() + ", Evento: " + ingresso.getEvento().getNome());
         }
         System.out.println("==================================================\n\n\n");
@@ -192,6 +193,7 @@ public class App {
 
     // Demonstração do histórico de eventos
     private static void demonstrandoHistorico(HistoricoEventos historicoEventos){
+        System.out.println("==================================================");
         System.out.println("Adicionando mais eventos ao histórico...");
         historicoEventos.adicionarEvento(
             new EventoEsporte(
@@ -238,10 +240,9 @@ public class App {
         );
         
         //Demonstracao do Historico de eventos
-        System.out.println("========================================");
         System.out.println("Histórico de eventos:");
         for (Evento evento : historicoEventos.buscarTodosEventos()) {
-            System.out.println("Evento: " + evento.getNome());
+            System.out.println(evento.getNome());
         }
         System.out.println("==================================================\n\n\n");
     }

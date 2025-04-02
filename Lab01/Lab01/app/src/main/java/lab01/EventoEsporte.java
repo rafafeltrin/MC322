@@ -1,10 +1,9 @@
+//O JavaDoc dessa classe foi gerado com auxílio de uma IA generativa (GPT-4o)
+
 package lab01;
 
-//O JavaDoc dessa classe foi gerados com auxílio de uma IA generativa (GPT-4o) 
-
 /**
- * Representa um evento esportivo, contendo informações específicas como tipo de esporte,
- * categoria e times participantes.
+ * Representa um evento esportivo, contendo informações específicas para esse tipo de evento
  * 
  * @author Rafael Feltrin - 276246
  */
@@ -15,7 +14,7 @@ public class EventoEsporte extends Evento {
     private String time2;
 
     /**
-     * Construtor completo para criar um evento esportivo com todos os detalhes.
+     * Construtor completo para criar um evento esportivo com disputa de times.
      * 
      * @param nome Nome do evento.
      * @param local Local onde o evento será realizado.
@@ -87,6 +86,18 @@ public class EventoEsporte extends Evento {
     }
 
     /**
+     * Obtém o nome do primeiro time.
+     * 
+     * @return Nome do primeiro time.
+     */
+    public String getTime1() {
+        if (time1 == null) {
+            return "Time 1 não definido";
+        }
+        return time1;
+    }
+
+    /**
      * Define o nome do primeiro time.
      * 
      * @param time1 Nome do primeiro time.
@@ -101,7 +112,19 @@ public class EventoEsporte extends Evento {
      * @return Nome do segundo time.
      */
     public String getTime2() {
+        if (time2 == null) {
+            return "Time 2 não definido";
+        }
         return time2;
+    }
+
+    /**
+     * Define o nome do segundo time.
+     * 
+     * @param time2 Nome do segundo time.
+     */
+    public void setTime2(String time2) {
+        this.time2 = time2;
     }
 
     /**

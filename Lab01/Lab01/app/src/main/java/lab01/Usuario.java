@@ -1,3 +1,5 @@
+//O JavaDoc dessa classe foi gerado com auxílio de uma IA generativa (GPT-4o)
+
 /*
  * Usuario.java
  * 
@@ -13,6 +15,7 @@ import java.util.List;
  * 
  * @author Gabriel Leite - 216180
  * @author Caio Rhoden - 214129
+ * @author Rafael Feltrin - 276246
  */
 public class Usuario {
 
@@ -47,23 +50,43 @@ public class Usuario {
         this.nome = nome;
     }
 
+    /**
+     * Retorna o email do usuário
+     * @return o email do usuário
+     */
     public String getEmail(){
         return email;
     }
 
+    /**
+     * Altera o email do usuário para `email`
+     * @param email o novo email do usuário
+     */
     public void setEmail(String email){
         this.email = email;
     }
 
+    /**
+     * Adiciona um ingresso à lista de ingressos comprados pelo usuário
+     * @param ingresso o ingresso a ser adicionado
+     */
     public void adicionarIngresso(Ingresso ingresso) {
         this.ingressosComprados.add(ingresso);
     }
 
+    /**
+     * Remove um ingresso da lista de ingressos comprados pelo usuário
+     * @param ingresso o ingresso a ser removido
+     */
     public void removerIngresso(Ingresso ingresso) {
         this.ingressosComprados.remove(ingresso);
     }
 
-    public List<Ingresso> getIngressosComprados() {
+    /**
+     * Retorna a lista de ingressos comprados pelo usuário
+     * @return a lista de ingressos comprados
+     */
+    public List<Ingresso> getIngresso() {
         return ingressosComprados;
     }
 }

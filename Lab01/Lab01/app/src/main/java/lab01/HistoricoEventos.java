@@ -1,10 +1,12 @@
+//O JavaDoc dessa classe foi gerado com auxílio de uma IA generativa (GPT-4o)
+
 package lab01;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Representa o histórico de eventos, permitindo adicionar, remover e buscar eventos.
+ * Representa o histórico de eventos, permitindo adicionar, remover e buscar eventos com filtros
  * 
  * @author Rafael Feltrin - 276246
  */
