@@ -97,6 +97,10 @@ public class Evento {
         return data;
     }
 
+    public Organizadora getOrganizadora(){
+        return organizadora;
+    }
+
     public void venderIngresso(Cliente cliente) throws IngressoEsgotadoException {
         if (ingressosVendidos.size() < capacidadeMaxima) {
             Ingresso ingresso = new Ingresso(this, this.precoIngresso);

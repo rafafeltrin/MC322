@@ -1,5 +1,6 @@
 package lab02;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Organizadora {
@@ -51,5 +52,17 @@ public class Organizadora {
     public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, String nomeBar, String horarioInicio, String horarioFim){
         Evento evento = new Evento(nome, local, precoIngresso, organizadora, data, capacidadeMaxima, new EventoEmBar(nomeBar, horarioInicio, horarioFim));
         eventos.add(evento);
+    }
+
+    public List<Evento> buscarEventos(Filter<Evento> filtro){
+        List<Evento> eventosBusca = new ArrayList<>();
+
+        for (Evento e : eventos){
+            if (filtro.matches(e)){
+                eventosBusca.add(e);
+            }
+        }
+
+        return eventosBusca;
     }
 }
