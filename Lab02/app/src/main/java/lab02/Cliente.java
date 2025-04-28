@@ -76,4 +76,16 @@ public class Cliente {
         return this.ingressos;
     }
 
+    public void cancelarIngresso(Ingresso ingresso) throws IngressoNaoEncontradoException, CancelamentoNaoPermitidoException {
+        if (this.ingressos.contains(ingresso)) {
+            if (ingresso.aceitaCancelamento()) {
+                this.removerIngresso(ingresso);
+            } else {
+                throw new CancelamentoNaoPermitidoException("Ingresso não pode ser cancelado.");
+            }
+        } else {
+            throw new IngressoNaoEncontradoException("Ingresso não encontrado na lista de ingressos do cliente.");
+        }
+    }
+
 }

@@ -4,6 +4,8 @@
 
 package lab02;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Evento {
     private String nome;
@@ -12,19 +14,22 @@ public class Evento {
     private Organizadora organizadora;
     private String data;
     private CaracteristicaDeEvento caracteristica;
-    
+    private List<Ingresso> ingressosVendidos = new ArrayList<>();
+    private int capacidadeMaxima;
+
 
     /**
      * Construtor da classe Evento
      * @param nome o nome do Evento
      * @param local o local associado ao Evento
      */
-    public Evento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, CaracteristicaDeEvento caracteristica) {
+    public Evento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, CaracteristicaDeEvento caracteristica) {
         this.nome = nome;
         this.local = local;
         this.precoIngresso = precoIngresso; // modificar para representar o preço base do ingresso
         this.organizadora = organizadora;
         this.data = data;
+        this.capacidadeMaxima = capacidadeMaxima;
         this.caracteristica = caracteristica;
     }
 
@@ -90,5 +95,19 @@ public class Evento {
      */
     public String getData() {
         return data;
+    }
+
+    public void venderIngresso(Cliente cliente) throws EventoNaoEncontradoException {
+        if (ingressosVendidos.size() < capacidadeMaxima) {
+            Ingresso ingresso = new Ingresso(this, this.precoIngresso);
+            ingressosVendidos.add(ingresso);
+            cliente.adicionarIngresso(ingresso);
+        } else {
+            throw new EventoNaoEncontradoException("Evento lotado! Não há mais ingressos disponíveis.");
+        }
+    }
+
+    public int getCapacidadeMaxima() {
+        return capacidadeMaxima;
     }
 }

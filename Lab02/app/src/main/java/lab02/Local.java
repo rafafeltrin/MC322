@@ -13,6 +13,7 @@ package lab02;
 public class Local{
     private String nome;
     private double capacidadeMaxima;
+    private boolean reservado = false;
 
     /**
      * Construtor da classe Local
@@ -53,5 +54,17 @@ public class Local{
      */
     public void setCapacidade(double capacidadeMaxima){
         this.capacidadeMaxima = capacidadeMaxima;
+    }
+
+    public void alocarParaEvento(Evento evento) throws LocalIndisponivelException, CapacidadeInsuficienteExceptation{
+        if(reservado == false){
+            if (evento.getCapacidadeMaxima() > this.capacidadeMaxima) {
+                throw new CapacidadeInsuficienteExceptation("Capacidade do local é menor que a capacidade do evento.");
+            }
+            reservado = true;
+            evento.setLocal(this);
+        } else{
+            throw new LocalIndisponivelException("Local já reservado para outro evento.");
+        }
     }
 }

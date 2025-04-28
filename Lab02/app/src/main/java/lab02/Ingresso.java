@@ -10,9 +10,9 @@ package lab02;
  * Contém a estrutura de implementação de um Ingresso.
  */
 public class Ingresso {
-
     private Evento evento;
     private double preco;
+    private boolean aceitaCancelamento = true;
 
     /**
      * Construtor da classe Ingresso
@@ -39,5 +39,13 @@ public class Ingresso {
      */
     public void setEvento(Evento evento) {
         this.evento = evento;
+    }
+
+    public boolean aceitaCancelamento() {
+        return aceitaCancelamento;
+    }
+
+    public void setAceitaCancelamento(boolean aceitaCancelamento) {
+        this.aceitaCancelamento = aceitaCancelamento;
     }
 }
