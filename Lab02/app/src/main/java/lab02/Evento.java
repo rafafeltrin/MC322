@@ -81,6 +81,10 @@ public class Evento {
         this.precoIngresso = precoIngresso;
     }
 
+    public List<Ingresso> getIngressosVendidos() {
+        return ingressosVendidos;
+    }
+
     public String descricao(){
         return "Evento: " + this.nome + " - Local: " + this.local + this.caracteristica.getDescricao();
     }

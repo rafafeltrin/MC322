@@ -6,7 +6,7 @@ package lab02;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cliente {
+public class Cliente implements Comparable<Cliente>{
 
     private String nome;
     private String email;
@@ -86,6 +86,19 @@ public class Cliente {
         } else {
             throw new IngressoNaoEncontradoException("Ingresso não encontrado na lista de ingressos do cliente.");
         }
+    }
+
+
+    @Override
+    public int compareTo(Cliente clienteComparar){
+        for (Ingresso ingresso: ingressos){
+            for (Ingresso ingressoComparar: clienteComparar.getIngressos()){
+                if (ingresso.equals(ingressoComparar)){
+                    return 0;
+                }
+            }
+        }
+        return 1;
     }
 
 }
