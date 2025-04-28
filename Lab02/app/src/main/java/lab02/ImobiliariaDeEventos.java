@@ -28,6 +28,8 @@ public class ImobiliariaDeEventos {
         this.locais.add(local);
     }
 
+    //Pensar na questão dessas funcões o que elas retornam
+    //***** */
     public Local buscarLocal(String nome) {
         for (Local local : locais) {
             if (local.getNome().equals(nome)) {

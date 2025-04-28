@@ -56,10 +56,10 @@ public class Local{
         this.capacidadeMaxima = capacidadeMaxima;
     }
 
-    public void alocarParaEvento(Evento evento) throws LocalIndisponivelException, CapacidadeInsuficienteExceptation{
+    public void alocarParaEvento(Evento evento) throws LocalIndisponivelException, CapacidadeInsuficienteException{
         if(reservado == false){
             if (evento.getCapacidadeMaxima() > this.capacidadeMaxima) {
-                throw new CapacidadeInsuficienteExceptation("Capacidade do local é menor que a capacidade do evento.");
+                throw new CapacidadeInsuficienteException("Capacidade do local é menor que a capacidade do evento.");
             }
             reservado = true;
             evento.setLocal(this);

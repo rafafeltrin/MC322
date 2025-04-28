@@ -24,32 +24,32 @@ public class Organizadora {
     //Aqui vou fazer vários criar eventos um para cada tipo de evento
     
     //Festival
-    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, List<String> lineup, int duracao){
-        Evento evento = new Evento(nome, local, precoIngresso, organizadora, data, new EventoFestival(lineup, duracao));
+    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, List<String> lineup, int duracao){
+        Evento evento = new Evento(nome, local, precoIngresso, organizadora, data, capacidadeMaxima, new EventoFestival(lineup, duracao));
         eventos.add(evento);
     }
 
     //Show
-    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, String artista){
-        Evento evento = new Evento(nome, local, precoIngresso, organizadora, data, new EventoShow(artista));
+    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, String artista){
+        Evento evento = new Evento(nome, local, precoIngresso, organizadora, data, capacidadeMaxima, new EventoShow(artista));
         eventos.add(evento);
     }
     
     //Esporte
-    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, List<String> times, String esporte){
-        Evento evento = new Evento(nome, local, precoIngresso, organizadora, data, new EventoJogo(times, esporte));
+    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, List<String> times, String esporte){
+        Evento evento = new Evento(nome, local, precoIngresso, organizadora, data, capacidadeMaxima, new EventoJogo(times, esporte));
         eventos.add(evento);
     }
 
     //Música ao vivo
-    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, String nomeDoArtista, String generoMusical){
-        Evento evento = new Evento(nome, local, precoIngresso, organizadora, data, new EventoMusicaAoVivo(nomeDoArtista, generoMusical));
+    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, String nomeDoArtista, String generoMusical){
+        Evento evento = new Evento(nome, local, precoIngresso, organizadora, data, capacidadeMaxima, new EventoMusicaAoVivo(nomeDoArtista, generoMusical));
         eventos.add(evento);
     }
 
     //Em bar
-    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, String nomeBar, String horarioInicio, String horarioFim){
-        Evento evento = new Evento(nome, local, precoIngresso, organizadora, data, new EventoEmBar(nomeBar, horarioInicio, horarioFim));
+    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, String nomeBar, String horarioInicio, String horarioFim){
+        Evento evento = new Evento(nome, local, precoIngresso, organizadora, data, capacidadeMaxima, new EventoEmBar(nomeBar, horarioInicio, horarioFim));
         eventos.add(evento);
     }
 }

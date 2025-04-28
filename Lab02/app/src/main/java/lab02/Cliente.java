@@ -58,17 +58,17 @@ public class Cliente {
         this.ingressos.add(ingresso);
     }
 
-    public void adicionarIngressos(List<Ingresso> ingressos) {
+    public void adicionarIngresso(List<Ingresso> ingressos) {
         for (Ingresso ingresso : ingressos) {
             this.adicionarIngresso(ingresso);
         }
     }
 
-    public void removerIngresso(Ingresso ingresso) {
+    public void removerIngresso(Ingresso ingresso) throws IngressoNaoEncontradoException {
         if (this.ingressos.contains(ingresso)) {
             this.ingressos.remove(ingresso);
         } else {
-            System.out.println("Ingresso não encontrado na lista de ingressos do cliente.");
+            throw new IngressoNaoEncontradoException("Ingresso não encontrado na lista de ingressos do cliente.");
         }
     }
 

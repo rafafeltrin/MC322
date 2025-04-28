@@ -97,13 +97,13 @@ public class Evento {
         return data;
     }
 
-    public void venderIngresso(Cliente cliente) throws EventoNaoEncontradoException {
+    public void venderIngresso(Cliente cliente) throws IngressoEsgotadoException {
         if (ingressosVendidos.size() < capacidadeMaxima) {
             Ingresso ingresso = new Ingresso(this, this.precoIngresso);
             ingressosVendidos.add(ingresso);
             cliente.adicionarIngresso(ingresso);
         } else {
-            throw new EventoNaoEncontradoException("Evento lotado! Não há mais ingressos disponíveis.");
+            throw new IngressoEsgotadoException("Evento lotado! Não há mais ingressos disponíveis.");
         }
     }
 
