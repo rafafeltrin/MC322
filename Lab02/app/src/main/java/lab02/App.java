@@ -16,8 +16,11 @@ public class App {
      * @param args
      */
     public static void main(String[] args) {
-
-
-        // Desenvolvimento de Cenário de Uso
+        //Organizadora organizadoraMaster = new Organizadora("Master", "" )
     }
+    /*
+    private void criarEventos() {
+
+    }
+     */
 }

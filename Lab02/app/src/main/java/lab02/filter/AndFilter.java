@@ -1,4 +1,4 @@
-package lab02;
+package lab02.filter;
 
 public class AndFilter<T> implements Filter<T> {
     private Filter<T> filter1;

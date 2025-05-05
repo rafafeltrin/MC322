@@ -1,4 +1,6 @@
-package lab02;
+package lab02.filter;
+
+import lab02.Evento;
 
 public class EventoPorDataFilter implements Filter<Evento>{
     private String DataBusca;

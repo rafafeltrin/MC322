@@ -6,6 +6,9 @@ package lab02;
 import java.util.ArrayList;
 import java.util.List;
 
+import lab02.exceptions.CancelamentoNaoPermitidoException;
+import lab02.exceptions.IngressoNaoEncontradoException;
+
 public class Cliente implements Comparable<Cliente>{
 
     private String nome;

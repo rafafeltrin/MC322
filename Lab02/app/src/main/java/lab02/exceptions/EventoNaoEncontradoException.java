@@ -1,4 +1,4 @@
-package lab02;
+package lab02.exceptions;
 
 
 //Vai ter que ser utilizado em algum lugar

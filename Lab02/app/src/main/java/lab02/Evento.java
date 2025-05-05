@@ -7,6 +7,10 @@ package lab02;
 import java.util.ArrayList;
 import java.util.List;
 
+import lab02.exceptions.CapacidadeInsuficienteException;
+import lab02.exceptions.IngressoEsgotadoException;
+import lab02.exceptions.LocalIndisponivelException;
+
 public class Evento {
     private String nome;
     private Local local;
@@ -25,7 +29,6 @@ public class Evento {
      */
     public Evento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, CaracteristicaDeEvento caracteristica) {
         this.nome = nome;
-        this.local = local;
         this.precoIngresso = precoIngresso; // modificar para representar o preço base do ingresso
         this.organizadora = organizadora;
         this.data = data;

@@ -1,6 +1,9 @@
-package lab02;
+package lab02.filter;
 
 import java.util.Objects;
+
+import lab02.Evento;
+import lab02.Organizadora;
 
 public class EventoPorOrganizadorFilter implements Filter<Evento>{
     private Organizadora organizadoraBusca;

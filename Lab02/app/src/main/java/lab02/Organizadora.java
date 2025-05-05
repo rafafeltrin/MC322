@@ -3,6 +3,8 @@ package lab02;
 import java.util.ArrayList;
 import java.util.List;
 
+import lab02.filter.Filter;
+
 public class Organizadora {
 
     private String nome;

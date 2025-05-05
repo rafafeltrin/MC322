@@ -5,6 +5,9 @@
  */
 package lab02;
 
+import lab02.exceptions.CapacidadeInsuficienteException;
+import lab02.exceptions.LocalIndisponivelException;
+
 /**
  * Contém a estrutura de implementação de um Local.
  * 

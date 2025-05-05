@@ -1,6 +1,9 @@
-package lab02;
+package lab02.filter;
 
 import java.util.Objects;
+
+import lab02.Evento;
+import lab02.Local;
 
 public class EventoPorLocalFilter implements Filter<Evento>{
     private Local localEventoBusca;
