@@ -41,6 +41,10 @@ public class Ingresso {
         this.evento = evento;
     }
 
+    public Evento getEvento() {
+        return evento;
+    }
+
     public boolean aceitaCancelamento() {
         return aceitaCancelamento;
     }

@@ -4,11 +4,12 @@
 
 package lab02;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ImobiliariaDeEventos {
     
-    private List<Local> locais;
+    private List<Local> locais = new ArrayList<>();
     private String nome;
 
 

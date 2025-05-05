@@ -97,7 +97,7 @@ public class Cliente implements Comparable<Cliente>{
     public int compareTo(Cliente clienteComparar){
         for (Ingresso ingresso: ingressos){
             for (Ingresso ingressoComparar: clienteComparar.getIngressos()){
-                if (ingresso.equals(ingressoComparar)){
+                if (ingresso.getEvento().equals(ingressoComparar.getEvento())){
                     return 0;
                 }
             }
