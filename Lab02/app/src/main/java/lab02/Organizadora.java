@@ -3,6 +3,8 @@ package lab02;
 import java.util.ArrayList;
 import java.util.List;
 
+import lab02.exceptions.CapacidadeInsuficienteException;
+import lab02.exceptions.LocalIndisponivelException;
 import lab02.filter.Filter;
 
 public class Organizadora {
@@ -10,7 +12,7 @@ public class Organizadora {
     private String nome;
     private int cnpj;
     private String endereco;
-    private List<Evento> eventos;
+    private List<Evento> eventos = new ArrayList<>();
 
     /**
      * Construtor da classe Organizadora
@@ -27,32 +29,37 @@ public class Organizadora {
     //Aqui vou fazer vários criar eventos um para cada tipo de evento
     
     //Festival
-    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, List<String> lineup, int duracao){
-        Evento evento = new Evento(nome, local, precoIngresso, organizadora, data, capacidadeMaxima, new EventoFestival(lineup, duracao));
+    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, List<String> lineup, int duracao) throws LocalIndisponivelException, CapacidadeInsuficienteException {  
+        Evento evento = new Evento(nome, precoIngresso, organizadora, data, capacidadeMaxima, new EventoFestival(lineup, duracao));
+        local.alocarParaEvento(evento);
         eventos.add(evento);
     }
 
     //Show
-    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, String artista){
-        Evento evento = new Evento(nome, local, precoIngresso, organizadora, data, capacidadeMaxima, new EventoShow(artista));
+    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, String artista) throws LocalIndisponivelException, CapacidadeInsuficienteException {
+        Evento evento = new Evento(nome, precoIngresso, organizadora, data, capacidadeMaxima, new EventoShow(artista));
+        local.alocarParaEvento(evento);
         eventos.add(evento);
     }
     
     //Esporte
-    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, List<String> times, String esporte){
-        Evento evento = new Evento(nome, local, precoIngresso, organizadora, data, capacidadeMaxima, new EventoJogo(times, esporte));
+    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, List<String> times, String esporte) throws LocalIndisponivelException, CapacidadeInsuficienteException {
+        Evento evento = new Evento(nome, precoIngresso, organizadora, data, capacidadeMaxima, new EventoJogo(times, esporte));
+        local.alocarParaEvento(evento);
         eventos.add(evento);
     }
 
     //Música ao vivo
-    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, String nomeDoArtista, String generoMusical){
-        Evento evento = new Evento(nome, local, precoIngresso, organizadora, data, capacidadeMaxima, new EventoMusicaAoVivo(nomeDoArtista, generoMusical));
+    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, String nomeDoArtista, String generoMusical) throws LocalIndisponivelException, CapacidadeInsuficienteException {
+        Evento evento = new Evento(nome, precoIngresso, organizadora, data, capacidadeMaxima, new EventoMusicaAoVivo(nomeDoArtista, generoMusical));
+        local.alocarParaEvento(evento);
         eventos.add(evento);
     }
 
     //Em bar
-    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, String nomeBar, String horarioInicio, String horarioFim){
-        Evento evento = new Evento(nome, local, precoIngresso, organizadora, data, capacidadeMaxima, new EventoEmBar(nomeBar, horarioInicio, horarioFim));
+    public void criarEvento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, String nomeBar, String horarioInicio, String horarioFim) throws LocalIndisponivelException, CapacidadeInsuficienteException {
+        Evento evento = new Evento(nome, precoIngresso, organizadora, data, capacidadeMaxima, new EventoEmBar(nomeBar, horarioInicio, horarioFim));
+        local.alocarParaEvento(evento);
         eventos.add(evento);
     }
 

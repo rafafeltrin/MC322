@@ -2,7 +2,7 @@ package lab02;
 
 import lab02.exceptions.EnderecoEmailInvalidoException;
 
-public class Email implements notificavel{
+public class Email implements Notificavel{
     private final String enderecoEmail;
 
     public Email(String enderecoEmail) throws EnderecoEmailInvalidoException {

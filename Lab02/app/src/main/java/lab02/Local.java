@@ -21,6 +21,7 @@ public class Local{
     /**
      * Construtor da classe Local
      * @param nome o nome do local
+     * @param capacidadeMaxima a capacidade máxima do local
      */
     public Local(String nome, double capacidadeMaxima){
         this.nome = nome;

@@ -14,7 +14,7 @@ public class Cliente implements Comparable<Cliente>{
     private String nome;
     private String email;
     private List<Ingresso> ingressos = new ArrayList<>();
-    private List<notificavel> canaisComunicacao = new ArrayList<>();
+    private List<Notificavel> canaisComunicacao = new ArrayList<>();
 
     /**
      * Construtor da classe cliente
@@ -105,12 +105,12 @@ public class Cliente implements Comparable<Cliente>{
         return 1;
     }
 
-    public void adicionarCanalComunicacao(notificavel canal) {
+    public void adicionarCanalComunicacao(Notificavel canal) {
         this.canaisComunicacao.add(canal);
     }
 
     public void notificar(String mensagem) {
-        for (notificavel canal : canaisComunicacao) {
+        for (Notificavel canal : canaisComunicacao) {
             canal.notificar(mensagem);
         }
     }
