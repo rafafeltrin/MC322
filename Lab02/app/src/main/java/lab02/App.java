@@ -133,7 +133,7 @@ public class App {
             barDoBelo,
             1000.0,
             organizadoraMaster,
-            "2024-11-01",
+            "2025-05-01",
             2,
             "Bar do belo",
             "19:00",
@@ -222,6 +222,7 @@ public class App {
 
 
         //Demonstrando comparação entre clientes
+        System.out.println("Demonstrando comparação entre clientes...");
         if (cliente2.compareTo(cliente5) == 0) {
             System.out.println("Os clientes são iguais.");
         } else {

@@ -9,6 +9,9 @@ import java.util.List;
 
 import lab02.exceptions.IngressoEsgotadoException;
 
+/**
+ * Representa um evento genérico
+ */
 public class Evento {
     private String nome;
     private Local local;
@@ -19,11 +22,14 @@ public class Evento {
     private List<Ingresso> ingressosVendidos = new ArrayList<>();
     private int capacidadeMaxima;
 
-
     /**
-     * Construtor da classe Evento
-     * @param nome o nome do Evento
-     * @param local o local associado ao Evento
+     * Construtor da classe Evento.
+     * @param nome o nome do evento
+     * @param precoIngresso o preço base do ingresso
+     * @param organizadora a organizadora responsável
+     * @param data a data do evento
+     * @param capacidadeMaxima capacidade máxima de ingressos
+     * @param caracteristica características específicas de cada tipo de evento
      */
     public Evento(String nome, double precoIngresso, Organizadora organizadora, String data, int capacidadeMaxima, CaracteristicaDeEvento caracteristica) {
         this.nome = nome;
@@ -35,8 +41,8 @@ public class Evento {
     }
 
     /**
-     * Retorna o nome do Evento
-     * @return o nome do Evento
+     * Retorna o nome do evento.
+     * @return o nome do evento
      */
     public String getNome(){
         return nome;
@@ -86,6 +92,10 @@ public class Evento {
         return ingressosVendidos;
     }
 
+    /**
+     * Retorna a descrição completa do evento. No qual é única para cada tipo de evento
+     * @return descrição do evento
+     */
     public String descricao(){
         return "Evento: " + this.nome + " - Local: " + this.local + this.caracteristica.getDescricao();
     }
@@ -106,6 +116,11 @@ public class Evento {
         return organizadora;
     }
 
+    /**
+     * Vende um ingresso para um cliente específico, se houver disponibilidade.
+     * @param cliente o cliente que deseja comprar o ingresso
+     * @throws IngressoEsgotadoException se a capacidade do evento já foi atingida
+     */
     public void venderIngresso(Cliente cliente) throws IngressoEsgotadoException {
         if (ingressosVendidos.size() < capacidadeMaxima) {
             Ingresso ingresso = new Ingresso(this, this.precoIngresso);
