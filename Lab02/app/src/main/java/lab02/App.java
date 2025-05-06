@@ -24,8 +24,16 @@ import lab02.exceptions.CancelamentoNaoPermitidoException;
 public class App {
 
     /**
-     * Aplicação principal
-     * @param args
+     * Ponto de entrada da aplicação de eventos.
+     * Realiza a criação de organizadora, locais, clientes e demonstra:
+     * - criação de diversos tipos de eventos (festival, show, esportes, música ao vivo, bar)
+     * - venda de ingressos com tratamento de esgotamento
+     * - busca de eventos por nome e por data
+     * - cancelamento de ingressos com validação de permissão
+     * - notificação de clientes via canais configurados
+     * - comparação de clientes por ordem alfabética
+     *
+     * @param args parâmetros de linha de comando (não utilizados)
      */
     public static void main(String[] args) {
         Organizadora organizadoraMaster = new Organizadora("Master", 1234567890, "Rua São Lucas, 123");

@@ -41,14 +41,26 @@ public class Ingresso {
         this.evento = evento;
     }
 
+    /**
+     * Retorna o evento associado ao ingresso.
+     * @return evento do ingresso
+     */
     public Evento getEvento() {
         return evento;
     }
 
+    /**
+     * Indica se o ingresso aceita cancelamento.
+     * @return true se cancelável, false caso contrário
+     */
     public boolean aceitaCancelamento() {
         return aceitaCancelamento;
     }
 
+    /**
+     * Define a política de cancelamento do ingresso.
+     * @param aceitaCancelamento true para permitir, false para não permitir
+     */
     public void setAceitaCancelamento(boolean aceitaCancelamento) {
         this.aceitaCancelamento = aceitaCancelamento;
     }

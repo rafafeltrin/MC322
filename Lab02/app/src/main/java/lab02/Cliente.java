@@ -9,6 +9,9 @@ import java.util.List;
 import lab02.exceptions.CancelamentoNaoPermitidoException;
 import lab02.exceptions.IngressoNaoEncontradoException;
 
+/**
+ * Representa um cliente que pode adquirir ingressos e receber notificações.
+ */
 public class Cliente implements Comparable<Cliente>{
 
     private String nome;
@@ -58,16 +61,29 @@ public class Cliente implements Comparable<Cliente>{
         this.email = email;
     }
 
+    /**
+     * Adiciona um ingresso ao cliente.
+     * @param ingresso ingresso a ser adicionado
+     */
     public void adicionarIngresso(Ingresso ingresso) {
         this.ingressos.add(ingresso);
     }
 
+    /**
+     * Adiciona múltiplos ingressos ao cliente.
+     * @param ingressos lista de ingressos a serem adicionados
+     */
     public void adicionarIngresso(List<Ingresso> ingressos) {
         for (Ingresso ingresso : ingressos) {
             this.adicionarIngresso(ingresso);
         }
     }
 
+    /**
+     * Remove um ingresso do cliente.
+     * @param ingresso ingresso a ser removido
+     * @throws IngressoNaoEncontradoException se o ingresso não estiver na lista
+     */
     public void removerIngresso(Ingresso ingresso) throws IngressoNaoEncontradoException {
         if (this.ingressos.contains(ingresso)) {
             this.ingressos.remove(ingresso);
@@ -76,10 +92,20 @@ public class Cliente implements Comparable<Cliente>{
         }
     }
 
+    /**
+     * Retorna a lista de ingressos do cliente.
+     * @return lista de ingressos
+     */
     public List<Ingresso> getIngressos() {
         return this.ingressos;
     }
 
+    /**
+     * Cancela um ingresso, respeitando a política de cancelamento.
+     * @param ingresso ingresso a ser cancelado
+     * @throws IngressoNaoEncontradoException se o ingresso não estiver na lista
+     * @throws CancelamentoNaoPermitidoException se o ingresso não permitir cancelamento
+     */
     public void cancelarIngresso(Ingresso ingresso) throws IngressoNaoEncontradoException, CancelamentoNaoPermitidoException {
         if (this.ingressos.contains(ingresso)) {
             if (ingresso.aceitaCancelamento()) {
@@ -92,7 +118,11 @@ public class Cliente implements Comparable<Cliente>{
         }
     }
 
-
+    /**
+     * Compara dois clientes verificando eventos em comum.
+     * @param clienteComparar cliente a ser comparado
+     * @return 0 se houver evento em comum, 1 caso contrário
+     */
     @Override
     public int compareTo(Cliente clienteComparar){
         for (Ingresso ingresso: ingressos){
@@ -105,10 +135,18 @@ public class Cliente implements Comparable<Cliente>{
         return 1;
     }
 
+    /**
+     * Adiciona um canal de comunicação para notificações.
+     * @param canal canal que implementa Notificavel
+     */
     public void adicionarCanalComunicacao(Notificavel canal) {
         this.canaisComunicacao.add(canal);
     }
 
+    /**
+     * Envia uma notificação por todos os canais cadastrados.
+     * @param mensagem conteúdo da notificação
+     */
     public void notificar(String mensagem) {
         for (Notificavel canal : canaisComunicacao) {
             canal.notificar(mensagem);

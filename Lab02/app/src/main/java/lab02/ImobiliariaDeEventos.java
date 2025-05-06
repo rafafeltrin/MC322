@@ -7,6 +7,9 @@ package lab02;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Gerencia os locais disponíveis para realização de eventos.
+ */
 public class ImobiliariaDeEventos {
     
     private List<Local> locais = new ArrayList<>();
@@ -29,8 +32,11 @@ public class ImobiliariaDeEventos {
         this.locais.add(local);
     }
 
-    //Pensar na questão dessas funcões o que elas retornam
-    //***** */
+    /**
+     * Busca um local pelo nome.
+     * @param nome nome do local
+     * @return o local encontrado ou null se não existir
+     */
     public Local buscarLocal(String nome) {
         for (Local local : locais) {
             if (local.getNome().equals(nome)) {
@@ -40,6 +46,11 @@ public class ImobiliariaDeEventos {
         return null;
     }
 
+    /**
+     * Busca um local pela capacidade máxima.
+     * @param capacidadeMaxima capacidade em número de pessoas
+     * @return o local encontrado ou null se não existir
+     */
     public Local buscarLocal(int capacidadeMaxima){
         for (Local local : locais) {
             if (local.getCapacidade() == capacidadeMaxima) {

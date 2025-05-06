@@ -13,7 +13,7 @@ import lab02.exceptions.EnderecoEmailInvalidoException;
 import lab02.exceptions.CapacidadeInsuficienteException;
 
 
-public class Lab02testes {
+public class Lab02Test {
     private Organizadora organizadoraMaster;
     private Cliente cliente1;
     private Cliente cliente2;
