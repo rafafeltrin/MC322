@@ -1,5 +1,6 @@
-/*
+//O JavaDoc dessa classe foi gerado com auxílio de uma IA generativa (GPT-4o)
 
+/*
  * Material usado na disciplina MC322 - Programação orientada a objetos.
  */
 

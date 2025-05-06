@@ -1,7 +1,10 @@
+//O JavaDoc dessa classe foi gerado com auxílio de uma IA generativa (GPT-4o)
+
 package lab02.exceptions;
 
-
-//Vai ter que ser utilizado em algum lugar
+/**
+ * Exceção lançada quando um evento não é encontrado.
+ */
 public class EventoNaoEncontradoException extends Exception {
     public EventoNaoEncontradoException(String message) {
         super(message);
