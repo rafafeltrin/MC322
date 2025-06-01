@@ -1,0 +1,157 @@
+/* Estilo geral para a raiz da aplicação */
+.root {
+    -fx-font-family: "Segoe UI", "Helvetica", "Arial", sans-serif;
+    -fx-base: #f0f4f8; /* Um cinza-azulado bem claro para o fundo */
+}
+
+/* ======================================================= */
+/* =========== ESTILOS PARA A BARRA SUPERIOR =============== */
+/* ======================================================= */
+.header-pane {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 2);
+}
+
+.header-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #888888; /* Cinza para o título */
+}
+
+.header-value {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333A45; /* Cor escura para o valor */
+}
+
+/* Estilo para os títulos principais da tela */
+.header-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50; /* Um azul escuro para o texto */
+}
+
+/* Estilo para os botões */
+.button {
+    -fx-background-color: #3498db; /* Um azul moderno e amigável */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px; /* Cantos arredondados */
+    -fx-padding: 8px 15px;
+}
+
+.button:hover {
+    -fx-background-color: #2980b9; /* Cor um pouco mais escura ao passar o mouse */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); /* Sombra suave */
+}
+
+/* Estilo para o painel de detalhes da direita */
+.details-pane {
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7; /* Uma borda cinza clara */
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px; /* Para que o fundo respeite a borda arredondada */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 0);
+}
+
+/* Estilo para os rótulos de título no painel de detalhes (ex: "Nome:", "Local:") */
+.detail-title-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e; /* Um cinza-azulado */
+}
+
+/* Estilo para os cabeçalhos da tabela */
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: #eaf1f8;
+    -fx-font-weight: bold;
+    -fx-size: 12px;
+    -fx-border-color: #dadedf;
+    -fx-border-width: 0 1px 1px 0;
+}
+
+/* Estilo geral da aplicação */
+.root {
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-background-color: #F4F4F9; /* Um cinza bem claro para o fundo */
+}
+
+/* ======================================================= */
+/* ====== CORREÇÃO: Estilo padrão para todos os Labels ====== */
+/* ======================================================= */
+.label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #333A45; /* Cor de texto padrão escura e consistente */
+}
+
+
+/* Estilos para os títulos principais (sobrescrevem o .label padrão) */
+.heading-1 {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.heading-2 {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4A4A4A;
+}
+
+/* Estilo para a Tabela */
+.table-view {
+    -fx-border-color: #DEDEDE;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #E9E9F0;
+}
+
+/* O seletor aqui é mais específico para sobrescrever o .label padrão */
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #333A45;
+}
+
+.table-view .table-cell {
+    -fx-border-color: transparent;
+    -fx-padding: 5px 10px;
+}
+
+/* Painel de detalhes à direita */
+.details-pane {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 0 0 0 1px; /* Apenas uma borda à esquerda */
+}
+
+.details-label-header {
+    -fx-font-weight: bold;
+    -fx-text-fill: #555555;
+}
+
+/* Rodapé com os botões */
+.footer {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1px 0 0 0; /* Apenas uma borda superior */
+}
+
+/* Estilo dos Botões */
+.button {
+    -fx-background-color: #4A7AFF; /* Um azul moderno */
+    -fx-text-fill: white; /* Garante que o texto do botão seja branco */
+    -fx-font-weight: bold;
+    -fx-background-radius: 20px; /* Bordas arredondadas */
+    -fx-padding: 8px 16px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #3566E0; /* Cor um pouco mais escura ao passar o mouse */
+}

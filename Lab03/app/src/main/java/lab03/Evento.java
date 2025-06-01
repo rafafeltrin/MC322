@@ -99,7 +99,7 @@ public class Evento {
      * @return descrição do evento
      */
     public String descricao(){
-        return "Evento: " + this.nome + " - Local: " + this.local + this.caracteristica.getDescricao();
+        return "Evento: " + this.nome + " - Local: " + this.local.getNome() + this.caracteristica.getDescricao();
     }
 
     public CaracteristicaDeEvento getCaracteristica() {
@@ -126,6 +126,11 @@ public class Evento {
     public void venderIngresso(Cliente cliente) throws IngressoEsgotadoException {
         if (ingressosVendidos.size() < capacidadeMaxima) {
             Ingresso ingresso = new Ingresso(this, this.precoIngresso);
+            try{
+                cliente.debitar(this.precoIngresso);
+            } catch (Exception e) {
+                throw new IngressoEsgotadoException("Saldo insuficiente para comprar o ingresso.");
+            }
             ingressosVendidos.add(ingresso);
             cliente.adicionarIngresso(ingresso);
         } else {

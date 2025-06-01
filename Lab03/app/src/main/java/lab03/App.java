@@ -47,10 +47,13 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ui/MainWindow.fxml"));
 
         // Cria a cena com o conteúdo do FXML.
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600); // Largura e altura da janela
+        Scene scene = new Scene(fxmlLoader.load(), 950, 600); // Largura e altura da janela
+
+        scene.getStylesheets().add(getClass().getResource("ui/styles.css").toExternalForm());
 
         MainWindowController controller = fxmlLoader.getController();
-        controller.initData(this.todosEventos, this.marketplace);
+
+        controller.initData(this.todosEventos, this.marketplace, this.clientes.getFirst());
 
         stage.setTitle("Sistema de Eventos e Marketplace");
         stage.setScene(scene);
@@ -121,8 +124,6 @@ public class App extends Application {
 
         } catch (IngressoEsgotadoException |
                  IngressoNaoPertenceAoClienteException | LocalIndisponivelException | CapacidadeInsuficienteException e) {
-            // Em uma aplicação real, mostraríamos um alerta de erro na UI.
-            // Por enquanto, apenas imprimimos no console para debug.
             System.err.println("Ocorreu um erro na inicialização dos dados: " + e.getMessage());
             e.printStackTrace();
         }

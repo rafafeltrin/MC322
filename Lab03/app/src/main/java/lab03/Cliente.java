@@ -114,6 +114,8 @@ public class Cliente implements Comparable<Cliente>{
         if (this.ingressos.contains(ingresso)) {
             if (ingresso.aceitaCancelamento()) {
                 this.removerIngresso(ingresso);
+                // Credita o valor do ingresso de volta ao saldo do cliente
+                this.creditar(ingresso.getPreco());
             } else {
                 throw new CancelamentoNaoPermitidoException("Ingresso não pode ser cancelado.");
             }

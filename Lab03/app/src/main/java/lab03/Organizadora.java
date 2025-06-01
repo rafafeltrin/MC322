@@ -144,4 +144,12 @@ public class Organizadora {
 
         return eventosBusca;
     }
+
+    /**
+     * Retorna o nome da organizadora.
+     * @return o nome da organizadora
+     */
+    public String getNome() {
+        return nome;
+    }
 }

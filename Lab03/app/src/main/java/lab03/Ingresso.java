@@ -31,7 +31,6 @@ public class Ingresso {
      * @return o preço do Ingresso
      */
     public double getPreco() {
-
         return this.preco;
     }
 
@@ -49,6 +48,22 @@ public class Ingresso {
      */
     public Evento getEvento() {
         return evento;
+    }
+
+    /**
+     * Retorna o nome do evento correspondente ao ingresso.
+     * @return nome do evento
+     */
+    public String getNomeEventoCorrespondente() {
+        return evento.getNome();
+    }
+
+    /**
+     * Retorna a data do evento correspondente ao ingresso.
+     * @return data do evento
+     */
+    public String getDataEventoCorrespondente() {
+        return evento.getData();
     }
 
     /**
