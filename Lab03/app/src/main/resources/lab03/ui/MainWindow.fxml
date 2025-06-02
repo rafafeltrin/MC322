@@ -92,7 +92,7 @@
     <bottom>
         <HBox alignment="CENTER" prefHeight="60.0" spacing="20.0" styleClass="footer" BorderPane.alignment="CENTER">
             <Button fx:id="verMeusIngressosButton" mnemonicParsing="false" text="Ver Meus Ingressos" onAction="#handleVerMeusIngressos"/>
-            <Button fx:id="acessarMarketplaceButton" mnemonicParsing="false" text="Acessar Marketplace" />
+            <Button fx:id="acessarMarketplaceButton" mnemonicParsing="false" text="Acessar Marketplace" onAction="#handleAcessarMarketplace"/>
         </HBox>
     </bottom>
 </BorderPane>

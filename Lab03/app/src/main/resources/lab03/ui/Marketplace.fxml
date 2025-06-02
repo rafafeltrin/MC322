@@ -7,25 +7,25 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab03.ui.MeusIngressosController">
+<BorderPane prefHeight="500.0" prefWidth="700.0" styleClass="root" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab03.ui.MarketplaceController">
     <padding>
         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
     </padding>
     <top>
-        <Label styleClass="heading-1" text="Meus Ingressos" BorderPane.alignment="CENTER">
+        <Label styleClass="heading-1" text="Marketplace de Ingressos" BorderPane.alignment="CENTER">
             <padding>
                 <Insets bottom="15.0" />
             </padding>
         </Label>
     </top>
     <center>
-        <TableView fx:id="ingressosTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <TableView fx:id="ofertasTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <columns>
                 <TableColumn fx:id="eventoColumn" prefWidth="250.0" text="Evento" />
-                <TableColumn fx:id="dataColumn" prefWidth="120.0" text="Data" />
-                <TableColumn fx:id="precoColumn" prefWidth="150.0" text="Preço Pago (R$)" />
+                <TableColumn fx:id="vendedorColumn" prefWidth="150.0" text="Vendedor" />
+                <TableColumn fx:id="precoOriginalColumn" prefWidth="120.0" text="Preço Original" />
+                <TableColumn fx:id="precoPedidoColumn" prefWidth="120.0" text="Preço da Oferta" />
             </columns>
         </TableView>
     </center>
@@ -35,8 +35,7 @@
                 <Insets top="15.0" />
             </padding>
             <children>
-                <Button fx:id="venderButton" mnemonicParsing="false" text="Vender no Marketplace"  onAction="#handleVenderNoMarketplace"/>
-                <Button fx:id="cancelarButton" mnemonicParsing="false" style="-fx-background-color: #D32F2F;" text="Cancelar Ingresso" onAction="#handleCancelarIngresso"/>
+                <Button fx:id="comprarButton" onAction="#handleComprar" mnemonicParsing="false" text="Comprar Ingresso Selecionado" />
             </children>
         </HBox>
     </bottom>

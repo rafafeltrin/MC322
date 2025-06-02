@@ -76,11 +76,8 @@ public class Marketplace {
         comprador.debitar(precoPedido);
         vendedor.creditar(valorParaVendedor);
 
-        // Transferência de propriedade do ingresso
         comprador.adicionarIngresso(ingresso);
-        // O ingresso já foi removido do vendedor no momento em que ele o ofertou (próximo passo)
 
-        // Remover a oferta da lista do marketplace
         this.ofertas.remove(oferta);
     }
 }

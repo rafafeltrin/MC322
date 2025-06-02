@@ -172,7 +172,7 @@ public class MainWindowController {
             // 2. Pega o controller da nova janela
             MeusIngressosController controller = loader.getController();
             // 3. Passa os dados necessários para o novo controller
-            controller.initData(this.clienteAtual);
+            controller.initData(this.clienteAtual, this.marketplace);
 
             // 4. Cria e configura a nova janela (Stage)
             Stage stage = new Stage();
@@ -190,6 +190,42 @@ public class MainWindowController {
             stage.showAndWait();
 
             atualizarHeaderCliente(clienteAtual);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleAcessarMarketplace() {
+        if (this.clienteAtual == null) {
+            // exibirAlerta("Atenção", "Selecione um cliente para acessar o marketplace.");
+            System.out.println("Nenhum cliente logado.");
+            return;
+        }
+
+        try {
+            // Carrega o FXML da tela do marketplace
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Marketplace.fxml"));
+            Parent root = loader.load();
+
+            // Passa os dados para o novo controller
+            MarketplaceController controller = loader.getController();
+            controller.initData(this.marketplace, this.clienteAtual);
+
+            // Cria e exibe a nova janela
+            Stage stage = new Stage();
+            stage.setTitle("Marketplace de Ingressos");
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+
+            // Pausa a janela principal e espera esta ser fechada
+            stage.showAndWait();
+
+            // Após fechar, atualiza o header, pois o cliente pode ter comprado algo
+            atualizarHeaderCliente(this.clienteAtual);
 
         } catch (IOException e) {
             e.printStackTrace();

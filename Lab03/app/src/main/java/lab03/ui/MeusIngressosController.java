@@ -2,15 +2,16 @@ package lab03.ui;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lab03.Cliente;
 import lab03.Ingresso;
+import lab03.Marketplace;
 import lab03.exceptions.CancelamentoNaoPermitidoException;
 import lab03.exceptions.IngressoNaoEncontradoException;
+import lab03.exceptions.IngressoNaoPertenceAoClienteException;
+
+import java.util.Optional;
 
 public class MeusIngressosController {
 
@@ -34,6 +35,8 @@ public class MeusIngressosController {
 
     private Cliente clienteLogado;
 
+    private Marketplace marketplace;
+
     @FXML
     public void initialize() {
         eventoColumn.setCellValueFactory(new PropertyValueFactory<>("nomeEventoCorrespondente"));
@@ -45,9 +48,9 @@ public class MeusIngressosController {
      * Recebe os dados do cliente logado para poder exibir seus ingressos.
      * @param cliente O cliente que está visualizando seus ingressos.
      */
-    public void initData(Cliente cliente) {
+    public void initData(Cliente cliente, Marketplace marketplace) {
         this.clienteLogado = cliente;
-
+        this.marketplace = marketplace;
         atualizarTabela();
     }
 
@@ -56,7 +59,7 @@ public class MeusIngressosController {
     }
 
     @FXML
-    private void handleVerMeusIngressos(){
+    private void handleCancelarIngresso(){
         //Ingresso selecionado
         Ingresso ingressoSelecionado = ingressosTable.getSelectionModel().getSelectedItem();
 
@@ -71,6 +74,40 @@ public class MeusIngressosController {
         } finally {
             atualizarTabela();
         }
+    }
+
+    @FXML
+    private void handleVenderNoMarketplace() {
+        Ingresso ingressoSelecionado = ingressosTable.getSelectionModel().getSelectedItem();
+
+        if (ingressoSelecionado == null) {
+            exibirAlerta("Ação inválida", "Por favor, selecione um ingresso para vender.");
+            return;
+        }
+
+        TextInputDialog dialog = new TextInputDialog("150.00");
+        dialog.setTitle("Vender Ingresso no Marketplace");
+        dialog.setHeaderText("Você está vendendo o ingresso para: " + ingressoSelecionado.getEvento().getNome());
+        dialog.setContentText("Por favor, digite o preço de venda:");
+
+        Optional<String> resultado = dialog.showAndWait();
+
+        resultado.ifPresent(precoStr -> {
+            try {
+                double precoPedido = Double.parseDouble(precoStr);
+
+                clienteLogado.oferecerIngressoParaVenda(ingressoSelecionado, precoPedido, this.marketplace);
+
+                exibirAlerta("Sucesso", "Seu ingresso foi ofertado no marketplace!");
+
+            } catch (NumberFormatException e) {
+                exibirAlerta("Erro de Formato", "O preço digitado não é um número válido.");
+            } catch (IngressoNaoPertenceAoClienteException e) {
+                exibirAlerta("Erro", "Ocorreu um problema ao ofertar seu ingresso: " + e.getMessage());
+            } finally {
+                atualizarTabela();
+            }
+        });
     }
 
     private void exibirAlerta(String titulo, String mensagem) {

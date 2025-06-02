@@ -71,7 +71,7 @@ public class App extends Application {
 
     private void inicializarDados() {
         // Inicializando o marketplace com 10% de comissão
-        this.marketplace = new Marketplace(0.1);
+        this.marketplace = new Marketplace(0.2);
 
         // Criando 2 Clientes com saldo arbitrário
         Cliente cliente1 = new Cliente("Alice", "alice@email.com", 1000.0);
