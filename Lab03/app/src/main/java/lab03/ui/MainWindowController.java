@@ -5,13 +5,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 import lab03.Cliente;
 import lab03.Evento;
 import lab03.Marketplace;
@@ -47,6 +45,9 @@ public class MainWindowController {
     private Label detalhesLocalLabel;
 
     @FXML
+    private ComboBox<Cliente> clienteComboBox;
+
+    @FXML
     private Label detalhesOrganizadorLabel;
 
     @FXML
@@ -65,7 +66,7 @@ public class MainWindowController {
     // Atributos para guardar a referência aos dados do sistema
     private List<Evento> listaDeEventos;
     private Marketplace marketplace;
-
+    private List<Cliente> todosOsClientes;
     private Cliente clienteAtual;
 
     /**
@@ -74,9 +75,6 @@ public class MainWindowController {
      */
     @FXML
     public void initialize() {
-        // Configura as colunas da tabela para saber de onde pegar os dados de um objeto Evento.
-        // O valor "nome", "data", "precoIngresso" DEVE corresponder exatamente
-        // ao nome do método getter na classe Evento (ex: getNome(), getData(), getPrecoIngresso()).
         nomeColumn.setCellValueFactory(new PropertyValueFactory<>("nome"));
         dataColumn.setCellValueFactory(new PropertyValueFactory<>("data"));
         precoColumn.setCellValueFactory(new PropertyValueFactory<>("precoIngresso"));
@@ -88,6 +86,27 @@ public class MainWindowController {
                     }
                 }
         );
+
+        clienteComboBox.setConverter(new StringConverter<Cliente>() {
+            @Override
+            public String toString(Cliente cliente) {
+                return cliente == null ? null : cliente.getNome();
+            }
+
+            @Override
+            public Cliente fromString(String string) {
+                // Não precisamos converter de String para Cliente neste caso
+                return null;
+            }
+        });
+
+        // Adiciona um "ouvinte" para quando um novo cliente for selecionado
+        clienteComboBox.valueProperty().addListener((obs, oldCliente, newCliente) -> {
+            if (newCliente != null) {
+                this.clienteAtual = newCliente;
+                atualizarHeaderCliente(this.clienteAtual);
+            }
+        });
     }
 
     /**
@@ -95,14 +114,19 @@ public class MainWindowController {
      * @param eventos A lista de todos os eventos a serem exibidos.
      * @param marketplace A instância do marketplace do sistema.
      */
-    public void initData(List<Evento> eventos, Marketplace marketplace, Cliente clienteLogado) {
+    public void initData(List<Evento> eventos, Marketplace marketplace,List<Cliente> todosClientes, Cliente clienteInicial) {
         this.listaDeEventos = eventos;
         this.marketplace = marketplace;
+        this.todosOsClientes = todosClientes;
+        this.clienteAtual = clienteInicial;
 
-        // Atualiza os detalhes do cliente logado na interface.
-        clienteNomeLabel.setText(clienteLogado.getNome());
-        clienteSaldoLabel.setText(String.format("R$ %.2f", clienteLogado.getSaldo()));
-        this.clienteAtual = clienteLogado;
+        // Popula o ComboBox com todos os clientes
+        clienteComboBox.setItems(FXCollections.observableArrayList(this.todosOsClientes));
+        // Define o cliente inicial como selecionado no ComboBox
+        clienteComboBox.setValue(this.clienteAtual);
+
+        // Atualiza o header (nome e saldo) com base no cliente inicial
+        atualizarHeaderCliente(this.clienteAtual);
 
         // Popula a tabela com os eventos.
         // FXCollections.observableArrayList cria uma lista "observável" que a TableView entende.
@@ -152,7 +176,11 @@ public class MainWindowController {
     }
 
     private void atualizarHeaderCliente(Cliente cliente) {
-        clienteSaldoLabel.setText(String.format("R$ %.2f", cliente.getSaldo()));
+        if (cliente != null) {
+            clienteSaldoLabel.setText(String.format("R$ %.2f", cliente.getSaldo()));
+        } else {
+            clienteSaldoLabel.setText("R$ --,--");
+        }
     }
 
     @FXML

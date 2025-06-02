@@ -53,7 +53,7 @@ public class App extends Application {
 
         MainWindowController controller = fxmlLoader.getController();
 
-        controller.initData(this.todosEventos, this.marketplace, this.clientes.getFirst());
+        controller.initData(this.todosEventos, this.marketplace, this.clientes, this.clientes.get(0));
 
         stage.setTitle("Sistema de Eventos e Marketplace");
         stage.setScene(scene);
