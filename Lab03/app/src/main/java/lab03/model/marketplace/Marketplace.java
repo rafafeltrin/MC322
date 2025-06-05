@@ -1,12 +1,14 @@
 //O JavaDoc dessa classe foi gerado com auxílio de uma IA generativa (GPT-4o)
 
-package lab03;
+package lab03.model.marketplace;
 
 import java.util.ArrayList;
 import java.util.List;
-import lab03.exceptions.IngressoNaoEncontradoException; // Supondo que será usado
+
 import lab03.exceptions.SaldoInsuficienteException; // Será criada
 import lab03.exceptions.OfertaNaoEncontradaException; // Será criada
+import lab03.model.cliente.Cliente;
+import lab03.model.cliente.Ingresso;
 
 /**
  * Gerencia a compra e venda de ingressos entre clientes.

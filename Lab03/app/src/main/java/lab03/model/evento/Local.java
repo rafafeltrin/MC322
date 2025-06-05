@@ -5,7 +5,7 @@
  * 
  * Material usado na disciplina MC322 - Programação orientada a objetos.
  */
-package lab03;
+package lab03.model.evento;
 
 import lab03.exceptions.CapacidadeInsuficienteException;
 import lab03.exceptions.LocalIndisponivelException;

@@ -4,8 +4,8 @@ package lab03.filter;
 
 import java.util.Objects;
 
-import lab03.Evento;
-import lab03.Local;
+import lab03.model.evento.Evento;
+import lab03.model.evento.Local;
 
 public class EventoPorLocalFilter implements Filter<Evento>{
     private Local localEventoBusca;

@@ -15,6 +15,12 @@ import lab03.exceptions.CapacidadeInsuficienteException;
 import lab03.exceptions.IngressoEsgotadoException;
 import lab03.exceptions.IngressoNaoPertenceAoClienteException;
 import lab03.exceptions.LocalIndisponivelException;
+import lab03.model.cliente.Cliente;
+import lab03.model.cliente.Ingresso;
+import lab03.model.evento.Evento;
+import lab03.model.evento.Local;
+import lab03.model.marketplace.Marketplace;
+import lab03.model.organizadora.Organizadora;
 import lab03.ui.MainWindowController;
 
 import java.io.IOException;

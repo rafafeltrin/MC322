@@ -10,9 +10,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
-import lab03.Cliente;
-import lab03.Evento;
-import lab03.Marketplace;
+import lab03.model.cliente.Cliente;
+import lab03.model.evento.Evento;
+import lab03.model.marketplace.Marketplace;
 import lab03.exceptions.IngressoEsgotadoException;
 
 import java.io.IOException;

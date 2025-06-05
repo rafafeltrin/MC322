@@ -1,13 +1,13 @@
 //O JavaDoc dessa classe foi gerado com auxílio de uma IA generativa (GPT-4o)
 
-package lab03;
+package lab03.notifications;
 
 import lab03.exceptions.EnderecoEmailInvalidoException;
 
 /**
  * Canal de notificação por email
  */
-public class Email implements Notificavel{
+public class Email implements Notificavel {
     private final String enderecoEmail;
 
     /**

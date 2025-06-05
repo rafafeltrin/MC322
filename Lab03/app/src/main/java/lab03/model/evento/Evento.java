@@ -4,12 +4,15 @@
  * Material usado na disciplina MC322 - Programação orientada a objetos.
  */
 
-package lab03;
+package lab03.model.evento;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import lab03.exceptions.IngressoEsgotadoException;
+import lab03.model.cliente.Cliente;
+import lab03.model.cliente.Ingresso;
+import lab03.model.organizadora.Organizadora;
 
 /**
  * Representa um evento genérico

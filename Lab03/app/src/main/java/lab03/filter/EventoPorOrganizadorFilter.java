@@ -4,8 +4,8 @@ package lab03.filter;
 
 import java.util.Objects;
 
-import lab03.Evento;
-import lab03.Organizadora;
+import lab03.model.evento.Evento;
+import lab03.model.organizadora.Organizadora;
 
 /**
  * Filtro que seleciona eventos por uma organizadora específica.

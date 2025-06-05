@@ -3,11 +3,14 @@
 /*
  * Material usado na disciplina MC322 - Programação orientada a objetos.
  */
-package lab03;
+package lab03.model.cliente;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import lab03.model.marketplace.Marketplace;
+import lab03.model.marketplace.OfertaIngresso;
+import lab03.notifications.Notificavel;
 import lab03.exceptions.*;
 
 /**

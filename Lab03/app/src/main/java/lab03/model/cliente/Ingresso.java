@@ -6,7 +6,9 @@
  * Material usado na disciplina MC322 - Programação orientada a objetos.
  */
 
-package lab03;
+package lab03.model.cliente;
+
+import lab03.model.evento.Evento;
 
 /**
  * Contém a estrutura de implementação de um Ingresso.

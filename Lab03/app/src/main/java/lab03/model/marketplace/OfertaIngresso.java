@@ -1,6 +1,9 @@
 //O JavaDoc dessa classe foi gerado com auxílio de uma IA generativa (GPT-4o)
 
-package lab03;
+package lab03.model.marketplace;
+
+import lab03.model.cliente.Cliente;
+import lab03.model.cliente.Ingresso;
 
 /**
  * Representa uma oferta de um ingresso específico em um Marketplace.

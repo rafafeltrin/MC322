@@ -1,6 +1,6 @@
 //O JavaDoc dessa classe foi gerado com auxílio de uma IA generativa (GPT-4o)
 
-package lab03;
+package lab03.model.organizadora;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,7 @@ import java.util.List;
 import lab03.exceptions.CapacidadeInsuficienteException;
 import lab03.exceptions.LocalIndisponivelException;
 import lab03.filter.Filter;
+import lab03.model.evento.*;
 
 /**
  * Representa uma organizadora responsável por criar e gerenciar eventos.

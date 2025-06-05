@@ -1,6 +1,6 @@
 //O JavaDoc dessa classe foi gerado com auxílio de uma IA generativa (GPT-4o)
 
-package lab03;
+package lab03.model.evento;
 
 /**
  * Representa um evento musical ao vivo, armazenando nome do artista e gênero musical.

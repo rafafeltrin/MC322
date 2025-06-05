@@ -8,9 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lab03.Cliente;
-import lab03.Marketplace;
-import lab03.OfertaIngresso;
+import lab03.model.cliente.Cliente;
+import lab03.model.marketplace.Marketplace;
+import lab03.model.marketplace.OfertaIngresso;
 import lab03.exceptions.OfertaNaoEncontradaException;
 import lab03.exceptions.SaldoInsuficienteException;
 

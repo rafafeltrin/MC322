@@ -4,7 +4,9 @@
  * Material usado na disciplina MC322 - Programação orientada a objetos.
  */
 
-package lab03;
+package lab03.model.organizadora;
+
+import lab03.model.evento.Local;
 
 import java.util.ArrayList;
 import java.util.List;

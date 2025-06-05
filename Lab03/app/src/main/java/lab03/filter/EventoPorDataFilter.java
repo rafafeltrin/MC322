@@ -2,7 +2,7 @@
 
 package lab03.filter;
 
-import lab03.Evento;
+import lab03.model.evento.Evento;
 
 /**
  * Filtro que seleciona eventos pela data
