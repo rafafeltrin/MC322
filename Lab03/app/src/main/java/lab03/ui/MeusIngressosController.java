@@ -1,3 +1,5 @@
+//O JavaDoc dessa classe foi gerado com auxílio de uma IA generativa (GPT-4o)
+
 package lab03.ui;
 
 import javafx.collections.FXCollections;
@@ -27,14 +29,7 @@ public class MeusIngressosController {
     @FXML
     private TableColumn<Ingresso, Double> precoColumn;
 
-    @FXML
-    private Button venderButton;
-
-    @FXML
-    private Button cancelarButton;
-
     private Cliente clienteLogado;
-
     private Marketplace marketplace;
 
     @FXML
@@ -54,13 +49,23 @@ public class MeusIngressosController {
         atualizarTabela();
     }
 
+    /**
+     * Atualiza a tabela de ingressos com os ingressos do cliente logado.
+     * Chamada sempre que há uma alteração nos ingressos (como cancelamento ou venda).
+     */
     private void atualizarTabela() {
         ingressosTable.setItems(FXCollections.observableArrayList(clienteLogado.getIngressos()));
     }
 
+
+    /**
+     * Método chamado quando o usuário clica no botão "Cancelar Ingresso".
+     * Verifica se um ingresso está selecionado e tenta cancelá-lo.
+     * Se o cancelamento for bem-sucedido, exibe uma mensagem de sucesso.
+     * Se ocorrer um erro, exibe uma mensagem de erro apropriada.
+     */
     @FXML
     private void handleCancelarIngresso(){
-        //Ingresso selecionado
         Ingresso ingressoSelecionado = ingressosTable.getSelectionModel().getSelectedItem();
 
         try {
@@ -76,6 +81,10 @@ public class MeusIngressosController {
         }
     }
 
+    /**
+     * Método chamado quando o usuário clica no botão "Vender Ingresso no Marketplace".
+     * Verifica se um ingresso está selecionado e tenta vender o ingresso no marketplace.
+     */
     @FXML
     private void handleVenderNoMarketplace() {
         Ingresso ingressoSelecionado = ingressosTable.getSelectionModel().getSelectedItem();
@@ -110,6 +119,12 @@ public class MeusIngressosController {
         });
     }
 
+
+    /**
+     * Exibe um alerta com o título e a mensagem fornecidos.
+     * @param titulo O título do alerta.
+     * @param mensagem A mensagem a ser exibida no alerta.
+     */
     private void exibirAlerta(String titulo, String mensagem) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(titulo);

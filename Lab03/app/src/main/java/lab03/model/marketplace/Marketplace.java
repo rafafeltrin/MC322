@@ -17,8 +17,8 @@ import lab03.model.cliente.Ingresso;
  */
 public class Marketplace {
 
-    private List<OfertaIngresso> ofertas;
-    private double comissaoPorcentagem;
+    private final List<OfertaIngresso> ofertas;
+    private final double comissaoPorcentagem;
 
     /**
      * Construtor da classe Marketplace.
@@ -67,7 +67,6 @@ public class Marketplace {
         Ingresso ingresso = oferta.getIngresso();
         double precoPedido = oferta.getPrecoPedido();
 
-        // Simulação da transação financeira (assumindo que Cliente terá saldo e métodos de débito/crédito)
         if (comprador.getSaldo() < precoPedido) {
             throw new SaldoInsuficienteException("Saldo insuficiente para realizar a compra.");
         }

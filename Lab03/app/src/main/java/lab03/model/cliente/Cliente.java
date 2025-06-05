@@ -29,6 +29,7 @@ public class Cliente implements Comparable<Cliente>{
      * Construtor da classe cliente
      * @param nome o nome do cliente
      * @param email o email do cliente
+     * @param saldo o saldo do cliente
      */
     public Cliente(String nome, String email, double saldo) {
         this.nome = nome;
@@ -58,14 +59,6 @@ public class Cliente implements Comparable<Cliente>{
      */
     public String getEmail(){
         return email;
-    }
-
-    /**
-     * Altera o email do cliente para `email` 
-     * @param email o novo email do cliente
-     */
-    public void setEmail(String email){
-        this.email = email;
     }
 
     /**
@@ -188,8 +181,8 @@ public class Cliente implements Comparable<Cliente>{
 
     /**
      * Coloca um ingresso do cliente à venda no marketplace.
-     * O método verifica se o cliente possui o ingresso e, em caso afirmativo,
-     * o remove de sua lista pessoal e o envia como uma oferta ao marketplace.
+     * O metodo verifica se o cliente possui o ingresso e, em caso afirmativo,
+     * o remove da sua lista pessoal e o envia como uma oferta ao marketplace.
      *
      * @param ingresso O ingresso a ser vendido.
      * @param precoPedido O preço que o cliente deseja receber pela venda.
@@ -211,7 +204,7 @@ public class Cliente implements Comparable<Cliente>{
 
     /**
      * Compra um ingresso que está em oferta no marketplace.
-     * Este método delega a lógica de processamento da compra para a classe Marketplace.
+     * Este metodo delega a lógica de processamento da compra para a classe Marketplace.
      *
      * @param oferta A oferta de ingresso que o cliente deseja comprar.
      * @param marketplace A instância do marketplace.

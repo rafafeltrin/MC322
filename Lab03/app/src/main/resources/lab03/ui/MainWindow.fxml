@@ -14,6 +14,13 @@
 
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.control.ComboBox?>
+
+<!--
+    O desenvolvimento desse arquivo FXML foi realizado com o auxílio do Scene Builder
+    e da IA generativa Gemini, que sugeriu a estrutura e os componentes adequados
+    para funcionalidade que eu queria implementar
+-->
+
 <BorderPane prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab03.ui.MainWindowController">
     <top>
         <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="header-pane" BorderPane.alignment="CENTER">
